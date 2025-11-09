@@ -39,8 +39,7 @@ This project demonstrates a simple variation of a AI-powered chat interface usin
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/cloudflare/templates.git
-   cd templates/llm-chat-app
+   git clone https://github.com/miharlin1/llm-chat-app.git
    ```
 
 2. Install dependencies:
@@ -87,7 +86,11 @@ npm wrangler tail
 ```
 /
 ├── public/             # Static assets
+│   ├── assets/icons    # Folder with icon images
+│   │   ├── save-icon.png  
+│   │   ├── saved-icon.png  
 │   ├── index.html      # Chat UI HTML
+│   ├── saved.html      # Saved Messages Page HTML
 │   └── chat.js         # Chat UI frontend script
 ├── src/
 │   ├── index.ts        # Main Worker entry point
@@ -95,6 +98,7 @@ npm wrangler tail
 ├── test/               # Test files
 ├── wrangler.jsonc      # Cloudflare Worker configuration
 ├── tsconfig.json       # TypeScript configuration
+├── PROMPTS.md          # AI prompts used
 └── README.md           # This documentation
 ```
 
