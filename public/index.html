@@ -3,17 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LLM Chat App</title>
+    <title>Check In Chatbot
+    </title>
     <style>
       :root {
-        --primary-color: #f6821f;
-        --primary-hover: #e67e22;
-        --light-bg: #f9fafb;
-        --border-color: #e5e7eb;
-        --text-color: #1f2937;
+        --primary-color: #522368;
+        --primary-hover: rgb(134, 60, 163);
+
+      .nav-button {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .nav-button:hover {
+        background-color: var(--primary-hover);
+      }
+        --light-bg: #faf9fb;
+        --border-color: #faf9fb;
+        --text-color: #28192c;
         --text-light: #6b7280;
-        --user-msg-bg: #fff2e6;
-        --assistant-msg-bg: #f3f4f6;
+        --user-msg-bg: #e4d9e8;
+        --assistant-msg-bg: #faf9fb;
       }
 
       * {
@@ -78,6 +96,35 @@
       .assistant-message {
         background-color: var(--assistant-msg-bg);
         align-self: flex-start;
+        position: relative;
+      }
+
+      .save-button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        padding: 0;
+        background: transparent;
+        display: inline-block;
+        color: inherit;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Keep the image small and remove any background from the button */
+      .save-button img {
+        width: 18px;
+        height: 18px;
+        display: block;
+      }
+
+      .save-button.saved {
+        opacity: 0.85;
+        transform: scale(0.98);
+      }
+
+      .save-button:hover img {
+        filter: brightness(0.9);
       }
 
       .message-input {
@@ -90,7 +137,7 @@
       #user-input {
         flex: 1;
         padding: 0.75rem;
-        border: 1px solid var(--border-color);
+        border: 2px solid var(--primary-color);
         border-radius: 4px;
         font-family: inherit;
         resize: none;
@@ -137,23 +184,23 @@
     </style>
   </head>
   <body>
+    <a href="saved.html" class="nav-button">View Saved Messages</a>
     <header>
-      <h1>Cloudflare AI Chat</h1>
-      <p>Powered by Cloudflare Workers AI</p>
+      <h1>Check In Chatbot</h1>
+      <p>Powered by Cloudflare Workers AI, adapted by Mia Harlin</p>
     </header>
 
     <div class="chat-container">
       <div id="chat-messages" class="chat-messages">
         <div class="message assistant-message">
           <p>
-            Hello! I'm an LLM chat app powered by Cloudflare Workers AI. How can
-            I help you today?
+            Hello! I'm Mia, an LLM chatbot powered by Cloudflare Workers AI. How are you doing today?
           </p>
         </div>
       </div>
 
       <div class="typing-indicator" id="typing-indicator">
-        AI is thinking...
+        AI Mia is thinking...
       </div>
 
       <div class="message-input">
