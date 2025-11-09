@@ -1,6 +1,6 @@
-# LLM Chat Application Template
+# LLM Chat Application Template, Adapted by Mia Harlin
 
-A simple, ready-to-deploy chat application template powered by Cloudflare Workers AI. This template provides a clean starting point for building AI chat applications with streaming responses.
+A simple, ready-to-deploy chat application powered by Cloudflare Workers AI. This app is a basic chatbot platform allowing users to chat with a friendly companion and save their favorite messages.
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/llm-chat-app-template)
 
@@ -8,11 +8,10 @@ A simple, ready-to-deploy chat application template powered by Cloudflare Worker
 
 ## Demo
 
-This template demonstrates how to build an AI-powered chat interface using Cloudflare Workers AI with streaming responses. It features:
+This project demonstrates a simple variation of a AI-powered chat interface using Cloudflare Workers AI with streaming responses. It features:
 
 - Real-time streaming of AI responses using Server-Sent Events (SSE)
-- Easy customization of models and system prompts
-- Support for AI Gateway integration
+- A customized system prompts
 - Clean, responsive UI that works on mobile and desktop
 
 ## Features
@@ -24,6 +23,7 @@ This template demonstrates how to build an AI-powered chat interface using Cloud
 - 📱 Mobile-friendly design
 - 🔄 Maintains chat history on the client
 - 🔎 Built-in Observability logging
+- Saved messages feature to view on seperate page
 <!-- dash-content-end -->
 
 ## Getting Started
@@ -39,8 +39,7 @@ This template demonstrates how to build an AI-powered chat interface using Cloud
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/cloudflare/templates.git
-   cd templates/llm-chat-app
+   git clone https://github.com/miharlin1/llm-chat-app.git
    ```
 
 2. Install dependencies:
@@ -87,7 +86,11 @@ npm wrangler tail
 ```
 /
 ├── public/             # Static assets
+│   ├── assets/icons    # Folder with icon images
+│   │   ├── save-icon.png  
+│   │   ├── saved-icon.png  
 │   ├── index.html      # Chat UI HTML
+│   ├── saved.html      # Saved Messages Page HTML
 │   └── chat.js         # Chat UI frontend script
 ├── src/
 │   ├── index.ts        # Main Worker entry point
@@ -95,6 +98,7 @@ npm wrangler tail
 ├── test/               # Test files
 ├── wrangler.jsonc      # Cloudflare Worker configuration
 ├── tsconfig.json       # TypeScript configuration
+├── PROMPTS.md          # AI prompts used
 └── README.md           # This documentation
 ```
 
